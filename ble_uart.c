@@ -6,7 +6,7 @@
 #include <gui/modules/menu.h>
 #include <gui/modules/popup.h>
 
-#define TAG "ble-uart"
+#define TAG "ble-friend-uart"
 
 // Referenced guide and code from https://instantiator.dev/post/flipper-zero-app-tutorial-02/
 
@@ -15,32 +15,53 @@
 
 /** ids for all scenes used by the app */
 typedef enum {
-    Ble_UartScene_MainMenu,
-    Ble_UartScene_BleConnect,
-    Ble_UartScene_BleTerminal,
-    Ble_UartScene_count
-} Ble_UartScene;
+    Ble_Friend_Uart_Scene_MainMenu,
+    Ble_Friend_Uart_Scene_Connect,
+    Ble_Friend_Uart_Scene_Terminal,
+    Ble_Friend_Uart_Scene_count
+} Ble_Friend_Uart_Scene;
 
 /** ids for the 2 types of view used by the app */
-typedef enum { Ble_UartView_Menu, Ble_UartViewPopup } Ble_UartView;
+typedef enum { Ble_Friend_Uart_View_Menu, Ble_Friend_Uart_ViewPopup } Ble_Friend_Uart_View;
 
 /** The app context struct */
-typedef struct {
+struct {
     SceneManager* scene_manager;
     ViewDispatcher* view_dispatcher;
     Menu* menu;
     Popup* popup;
-} Ble_Uart;
+} Ble_Friend_Uart;
 
 /** all custom events */
-typedef enum { Ble_Uart_ShowBleConnectPopup, Ble_Uart_ShowBleTerminalPopup } Ble_UartAppEvent;
+typedef enum {
+    Ble_Friend_Uart_Show_Connect_Popup,
+    Ble_Friend_Uart_Show_Terminal_Popup
+} Ble_Friend_Uart_AppEvent;
 
 /* ---------- main menu scene ---------- */
 
 /** indices for menu items */
 typedef enum {
-    Ble_Uart_Selection_MenuBleConnect,
-    Ble_Uart_Selection_MenuBleTerminal
-} Ble_Uart_Selection;
+    Ble_Friend_Uart_Connect_Selection,
+    Ble_Friend_Uart_Terminal_Selection
+} Ble_Friend_Uart_Selection;
 
 /** main menu callback - sends a custom event to the scene manager based on the menu selection */
+void test_app_menu_callback_main_menu(void* context, uint32_t index) {
+    FURI_LOG_T(TAG, "test_app_menu_callback_main_menu");
+    Ble_Friend_Uart* app = context;
+    switch(index) {
+    case Ble_Friend_Uart_Connect_Selection:
+        scene_manager_handle_custom_event(app->scene_manager, Ble_Friend_Uart_Show_Connect_Popup);
+        break;
+    case Ble_Friend_Uart_Terminal_Selection:
+        scene_manager_handle_custom_event(app->scene_manager, Ble_Friend_Uart_Show_Terminal_Popup);
+        break;
+    }
+}
+
+/** resets the menu, gives it content, callbacks and selection enums */
+void test_app_scene_on_enter_main_menu(void* context) {
+    FURI_LOG_T(TAG, "test_app_scene_on_enter_main_menu");
+    Ble_Friend_Uart* app = context;
+    menu_reset(app->menu);

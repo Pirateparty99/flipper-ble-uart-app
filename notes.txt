@@ -1,0 +1,7 @@
+Find/Replace:
+
+TestAppMenuSelection_One
+BleFriend_Uart_ShowConnectPopup
+
+TestAppMenuSelection_Two
+BleFriend_Uart_ShowTerminalPopup
