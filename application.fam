@@ -1,15 +1,15 @@
 # For details & more options, see documentation/AppManifests.md in firmware repo
 
 App(
-    appid="ble_friend_terminal",  # Must be unique
+    appid="ble_friend_app",  # Must be unique
     name="BLE Friend Terminal",  # Displayed in menus
     apptype=FlipperAppType.EXTERNAL,
-    entry_point="ble_friend_terminal",
+    entry_point="ble_friend_app",
     stack_size=2 * 1024,
     fap_category="Bluetooth",
     # Optional values
-    fap_version="0.1",
-    fap_icon="ble_uart.png",  # 10x10 1-bit PNG
+    # fap_version="0.1",
+    fap_icon="ble_friend_app.png",  # 10x10 1-bit PNG
     fap_description="App used to connect UART over BLE via Adafruit's BLE Friend.",
     fap_author="Pirateparty99",
     # fap_weburl="https://github.com/user/ble_uart",
