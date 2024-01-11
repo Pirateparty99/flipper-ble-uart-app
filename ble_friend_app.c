@@ -92,11 +92,11 @@ bool ble_friend_app_scene_on_event_main_menu(void* context, SceneManagerEvent ev
     case SceneManagerEventTypeCustom:
         switch(event.event) {
         case ble_friend_app_show_connect_popup:
-            scene_manager_next_scene(app->scene_manager, ble_friend_app_show_connect_popup);
+            scene_manager_next_scene(app->scene_manager, ble_friend_app_scene_connect);
             consumed = true;
             break;
         case ble_friend_app_show_terminal_popup:
-            scene_manager_next_scene(app->scene_manager, ble_friend_app_show_terminal_popup);
+            scene_manager_next_scene(app->scene_manager, ble_friend_app_scene_terminal);
             consumed = true;
             break;
         }
@@ -122,8 +122,8 @@ void ble_friend_app_scene_on_enter_connect_popup(void* context) {
     popup_reset(app->popup);
     popup_set_context(app->popup, app);
     popup_set_header(app->popup, "Connect Popup", 64, 10, AlignCenter, AlignTop);
-    popup_set_icon(app->popup, 10, 10, &I_ble_friend_app_image_36x36);
-    popup_set_text(app->popup, "Connect! Connect popup. Ah ah ah...", 64, 20, AlignLeft, AlignTop);
+    popup_set_icon(app->popup, 10, 10, &I_connect);
+    popup_set_text(app->popup, "Connect popup! (press back)  ", 64, 20, AlignLeft, AlignTop);
     view_dispatcher_switch_to_view(app->view_dispatcher, ble_friend_app_view_popup);
 }
 
@@ -148,9 +148,9 @@ void ble_friend_app_scene_on_enter_terminal_popup(void* context) {
     popup_reset(app->popup);
     popup_set_context(app->popup, app);
     popup_set_header(app->popup, "Terminal Popup", 64, 10, AlignCenter, AlignTop);
-    popup_set_icon(app->popup, 10, 10, &I_ble_friend_app_image_36x36);
+    popup_set_icon(app->popup, 10, 10, &I_terminal);
     popup_set_text(
-        app->popup, "Terminal! Terminal popups. (press back)", 64, 20, AlignLeft, AlignTop);
+        app->popup, "Terminal popup. (press back)", 64, 20, AlignLeft, AlignTop);
     view_dispatcher_switch_to_view(app->view_dispatcher, ble_friend_app_view_popup);
 }
 

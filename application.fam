@@ -2,9 +2,9 @@
 
 App(
     appid="ble_friend_app",  # Must be unique
-    name="BLE Friend Terminal",  # Displayed in menus
+    name="BLE Friend App",  # Displayed in menus
     apptype=FlipperAppType.EXTERNAL,
-    entry_point="ble_friend_app",
+    entry_point="ble_friend_app_app",
     stack_size=2 * 1024,
     fap_category="Bluetooth",
     # Optional values
