@@ -1,0 +1,1 @@
+This folder will be used for storing config files to be applied to the BLE UART Friend boards.
