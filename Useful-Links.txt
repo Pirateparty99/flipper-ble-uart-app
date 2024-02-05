@@ -1,0 +1,18 @@
+---------- Bluetooth Programming ----------
+
+https://tldp.org/HOWTO/Serial-Programming-HOWTO/
+https://www.bluetooth.com/specifications/specs/core-specification-5-3/
+https://stackoverflow.com/questions/72451087/how-to-connect-ble-devices-using-linux-bluetooth-c-library
+https://github.com/petzval/btferret
+
+https://stackoverflow.com/questions/45044504/bluetooth-programming-in-c-secure-connection-and-data-transfer
+https://www.reddit.com/r/flipperzero/comments/15wygxm/flipper_ble/
+
+
+---------- Serial Connection/Control
+https://github.com/h2zero/NimBLE-Arduino
+https://github.com/flipperdevices/flipperzero-firmware/tree/dev/applications/main/gpio
+https://github.com/justcallmekoko/ESP32Marauder/wiki/installing-firmware-from-source
+// Nvm, don't need to do  BLE code (maybe?) bc you just need to send serial commands to BLE UART Friend
+
+tldp.org/HOWTO/Serial-Programming-HOWTO/
